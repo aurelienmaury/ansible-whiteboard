@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  become: no
+  gather_facts: no
+
+  tasks:
+    - debug:
+        msg: "{{ website.env }}"
+
+    - debug:
+        msg: "{{ website['env'] }}"
+
+    - set_fact:
+        desired_attribute: "env"
+
+    - debug:
+        msg: "{{ website[desired_attribute] }}"
